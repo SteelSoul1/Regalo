@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños Amor</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #ffccf9, #ffb6c1);
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            height: auto; /* Cambiado a auto para permitir scroll */
+            overflow-y: auto;
+            color: #4B0082;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            text-align: center;
+            margin: 0;
+            animation: fadeIn 2s ease-in-out;
+            color: #DC143C;
+        }
+
+        .profile-photo {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            border: 6px solid #ff69b4;
+            margin-top: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        p {
+            font-size: 1.6em;
+            margin: 15px 0;
+            text-align: center;
+            animation: textAnimation 5s infinite;
+        }
+
+        .balloons {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 600px;
+            pointer-events: none;
+        }
+
+        .balloon {
+            width: 50px;
+            height: 80px;
+            background-color: #ff69b4;
+            border-radius: 50% 50% 50% 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .balloon:nth-child(1) {
+            background-color: #ff69b4;
+            animation-delay: 0s;
+        }
+
+        .balloon:nth-child(2) {
+            background-color: #ff69b4;
+            animation-delay: 1s;
+        }
+
+        .balloon:nth-child(3) {
+            background-color: #ffb6c1;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-200px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 8px 18px;
+            font-size: 1.2em;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .yes {
+            background-color: #ff69b4;
+            color: white;
+        }
+
+        .yes:hover {
+            background-color: #ff1493;
+        }
+
+        .no {
+            background-color: #f5f5f5;
+            color: black;
+        }
+
+        .no:hover {
+            background-color: #dcdcdc;
+        }
+
+        .celebration {
+            display: none;
+            font-size: 1.8em;
+            animation: pop 1s forwards;
+            margin-top: 20px;
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .photos {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .photos img {
+            width: 450px;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 20px;
+            border: 5px solid #ff69b4;
+        }
+
+        .personal-message {
+            font-size: 1.4em;
+            margin: 10px;
+            text-align: center;
+            color: white;
+            animation: fadeIn 2s ease-in-out;
+            background-color: #ff69b4;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #ff1493;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .final-message {
+            font-size: 1.4em;
+            margin-top: 30px;
+            text-align: center;
+            color: #4B0082;
+            animation: fadeIn 2s ease-in-out;
+            background-color: #ff69b4;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #ff1493;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .photo-section {
+            text-align: center;
+        }
+
+        .photo-space {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .photo-space img {
+            width: 400px;
+            height: auto;
+            border-radius: 15px;
+            border: 5px solid #ff69b4;
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Feliz Cumpleaños, Mi Amor! 🎉</h1>
+
+    <!-- Foto principal de ella -->
+    <img src="Imagen de WhatsApp 2024-09-26 a las 09.06.13_14594ed8.jpg" alt="Foto de ella" class="profile-photo">
+
+    <p>Hoy estaremos felices todo el día, ¿verdad?</p>
+
+    <div class="buttons" id="buttons">
+        <button class="yes">Clarooooo hermoso</button>
+        <button class="no">No bby</button>
+    </div>
+
+    <div class="celebration" id="celebrationText"> Vamos a celebrar todo el día! 🎊🥳💛</div>
+
+    <div class="balloons" id="balloons">
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+    </div>
+
+    <div class="photos" id="photos">
+        <!-- Fotos más grandes con texto dividido -->
+        <div class="photo-section">
+            <img src="Imagen de WhatsApp 2024-09-24 a las 23.45.10_29d2da46.jpg" alt="Foto 1">
+            <div class="personal-message">Hoy, en tu hermoso cumpleaños, será un día increíble. No puedo dejar de pensar en lo hermosa que eres, no solo por tu apariencia, que es simplemente encantadora, sino por la belleza de tu ser.</div>
+        </div>
+
+        <div class="photo-section">
+            <img src="Imagen de WhatsApp 2024-09-26 a las 09.06.13_dcba6a01.jpg" alt="Foto 2">
+            <div class="personal-message">Tu sonrisa ilumina todo a tu alrededor, y tu presencia es un regalo . Sé que este día no siempre te emociona, pero prometo que este cumpleaños lo recordarás con una sonrisa.</div>
+        </div>
+
+        <div class="photo-section">
+            <img src="Imagen de WhatsApp 2024-09-26 a las 08.57.22_9e4e0747.jpg" alt="Foto 3">
+            <div class="personal-message">Me encantas hermosa. 💛 Y nunca lo olvides... siempre serás mi main Yuumi favorita JAJAJAJA. 💖</div>
+        </div>
+
+        <!-- Mensaje final movido al final de las fotos -->
+        <div class="final-message">
+            Jum, quien me viera escribiendo así pensaría que soy un escritor antiguo, pero quería darle un toque un poquito diferente a mi hablado común jaja. Pero dejando de lado eso, cada vez que veo ese disfraz me dan ganas de que me estrangule con esas piernas hptaaaaaaaaaaaaaaaaaaaaa, ¡qué piernotas tan ricas! Esos labios, mi amooooooooooooooooooooooooooorrrr, o esos ojos tan encantadores, uff, o esa sonrisa tan lindaaaaaaaaaaaaaaaaaaaaaaa. Pero claro, si yo lo escribía así se veía feo, pero lo escribo aquí porque aja, ya lo lindo fue escrito arriba.
+            <br><br>
+            ¡FELIZ CUMPLEAÑOOOOOOOOOOOOOOOOOOOOSSSS! Y que tengas un hermoso díaaaaa, que las personas tan lindas como tú solo merecen cosas hermosas. 
+            <br><br>
+            Pd: ahórcame con esas piernas, mi amoooooooor.
+
+            att: El mas lindo de colombia.
+
+            Obviamente no podia faltar una foto mia siendo otaku, demostrando que no me baño
+        </div>
+
+        <!-- Espacio para agregar tu foto -->
+        <div class="photo-space">
+            <img src="Imagen de WhatsApp 2024-09-26 a las 10.23.12_a5ace5dd.jpg" alt="Tu foto">
+        </div>
+    </div>
+
+    <script>
+        const noButton = document.querySelector('.no');
+        const yesButton = document.querySelector('.yes');
+        const celebrationText = document.getElementById('celebrationText');
+        const balloons = document.getElementById('balloons');
+        const photos = document.getElementById('photos');
+        const buttons = document.getElementById('buttons');
+
+        // Movimiento del botón "No bby"
+        noButton.addEventListener('mouseover', () => {
+            const xMove = Math.random() * 200 - 100; // Mover a la izquierda o derecha
+            const yMove = Math.random() * 200 - 100; // Mover arriba o abajo
+            noButton.style.transform = `translate(${xMove}px, ${yMove}px)`;
+        });
+
+        // Mostrar la animación de celebración cuando presiona "Clarooooo hermoso"
+        yesButton.addEventListener('click', () => {
+            celebrationText.style.display = 'block';
+            balloons.style.animation = 'fadeOut 2s forwards';
+            buttons.style.display = 'none'; // Desaparecer los botones
+            setTimeout(() => {
+                balloons.style.display = 'none';
+                photos.style.display = 'flex'; // Mostrar las fotos
+            }, 2000); // Esperar a que los globos desaparezcan
+        });
+    </script>
+</body>
+</html>
